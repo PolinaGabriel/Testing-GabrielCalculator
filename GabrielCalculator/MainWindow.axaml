@@ -1,0 +1,185 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="515" d:DesignHeight="415"
+        x:Class="GabrielCalculator.MainWindow"
+        Title="GabrielCalculator"
+		Width="515" Height="415">
+	<Grid ShowGridLines="False" Grid.ColumnDefinitions="5 50 50 50 50 50 5 50 50 50 50 50 5" Grid.RowDefinitions="5 40 50 50 50 50 50 50 50 5">
+		<Border Grid.Column="1" Grid.ColumnSpan="11" Grid.Row="1" Grid.RowSpan="2" BorderBrush="Gray" BorderThickness="1" CornerRadius="3"  Width="500" Height="85"/>
+		<TextBlock x:Name="expression" Grid.Column="1" Grid.ColumnSpan="11" Grid.Row="1" Width="495" Height="30" Padding="10"/>
+		<TextBlock x:Name="entry" Grid.Column="1" Grid.ColumnSpan="11" Grid.Row="2" Width="495" Height="40" Padding="10"/>
+		<StackPanel Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="3" Margin="5">
+			<Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="3"  Width="245" Height="45">
+				<RadioButton x:Name="Deg" Click="CheckDeg" GroupName="DRG" HorizontalAlignment="Left" Margin="20 5" Padding="5" Content="deg"/>
+			</Border>
+		</StackPanel>
+		<StackPanel Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="3" Margin="5">
+			<RadioButton x:Name="Rad" Click="CheckRad" GroupName="DRG" HorizontalAlignment="Center" Margin="20 5 20 5" Padding="5" Content="rad"/>
+		</StackPanel>
+		<StackPanel Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="3" Margin="5">
+			<RadioButton x:Name="Gon" Click="CheckGon" GroupName="DRG" HorizontalAlignment="Right" Margin="20 5" Padding="5" Content="gon"/>
+		</StackPanel>
+		<Button Click="MemoryClear" Grid.Column="7" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="MC" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="MemoryRead" Grid.Column="8" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="MR" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="MemorySave" Grid.Column="9" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="MS" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="MemoryPlus" Grid.Column="10" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="M+" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="MemoryMinus" Grid.Column="11" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="M-" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+			<Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="3" Width="95" Height="45">	
+				<RadioButton x:Name="Inv" Click="CheckInv" Padding="5" HorizontalAlignment="Center">
+					<TextBlock Text="Inv" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+				</RadioButton>
+			</Border>
+		</StackPanel>
+		<Button Click="Ln" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="ln" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="BracketStart" Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="(" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="BracketEnd" Grid.Column="5" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text=")" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Backspace" Grid.Column="7" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="←" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="ClearEntry" Grid.Column="8" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="CE" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Clear" Grid.Column="9" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Negate"  Grid.Column="10" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="±" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Radix2" Grid.Column="11" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="√" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Int" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="Int" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="SinH" Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="sinh" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Sin" Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="sin" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Power2" Grid.Column="4" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="x&#178;" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Factorial" Grid.Column="5" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="n!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Seven" Grid.Column="7" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45" Background="LightBlue">
+			<TextBlock Text="7" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Eight" Grid.Column="8" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45" Background="LightBlue">
+			<TextBlock Text="8" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Nine" Grid.Column="9" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45" Background="LightBlue">
+			<TextBlock Text="9" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Divide" Grid.Column="10" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0"  Width="45" Height="45">
+			<TextBlock Text="/" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Percent" Grid.Column="11" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="%" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Dms" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="dms" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="CosH" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="cosh" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Cos" Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="cos" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="PowerY" Grid.Column="4" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="x&#8319;" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="RadixY" Grid.Column="5" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="&#8319;√x" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Four" Grid.Column="7" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45" Background="LightBlue">
+			<TextBlock Text="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Five" Grid.Column="8" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45" Background="LightBlue">
+			<TextBlock Text="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Six" Grid.Column="9" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45" Background="LightBlue">
+			<TextBlock Text="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Multiple" Grid.Column="10" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="*" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Division" Grid.Column="11" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="1/x" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Pi" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="π" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="TanH" Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="tanh" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Tan" Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="tan" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Power3" Grid.Column="4" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="x&#179;" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Radix3" Grid.Column="5" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="&#179;√x" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="One" Grid.Column="7" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45" Background="LightBlue">
+			<TextBlock Text="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Two" Grid.Column="8" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45" Background="LightBlue">
+			<TextBlock Text="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Three" Grid.Column="9" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45" Background="LightBlue">
+			<TextBlock Text="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Minus" Grid.Column="10" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="-" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Solve" Grid.Column="11" Grid.Row="7" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="95">
+			<TextBlock Text="=" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="FE" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="F-E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Exp" Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="Exp" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Mod" Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="Mod" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Log" Grid.Column="4" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="log" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="TenPower" Grid.Column="5" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="10&#8319;" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Zero" Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="95" Height="45" Background="LightBlue">
+			<TextBlock Text="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Comma" Grid.Column="9" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45" Background="LightBlue">
+			<TextBlock Text="," HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Click="Plus" Grid.Column="10" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Width="45" Height="45">
+			<TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+	</Grid>
+</Window>
